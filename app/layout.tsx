@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import Navigation from "../components/Navigation";
 import "./globals.css";
 
 export const cormorant = Cormorant_Garamond({
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.className}>
+        <Navigation />
         {children}
       </body>
     </html>
