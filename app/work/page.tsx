@@ -30,12 +30,12 @@ const products = [
     longDescription: "Stappli simplifies workflow through quiet, thoughtful automation designed to make coordination feel more natural and efficient."
   },
   {
-    name: "Orchestra Platform",
+    name: "Coming Soon",
     availability: "Coming Soon",
     image: "/leemalaimare2.jpg",
-    slug: "orchestra-platform",
-    shortDescription: "Platform for orchestras.",
-    longDescription: "Orchestra Platform will connect musicians worldwide. Launching soon."
+    slug: "Coming Soon",
+    shortDescription: "Coming Soon.",
+    longDescription: "Coming Soon."
   },
   {
     name: "Dakuu",
@@ -43,15 +43,15 @@ const products = [
     image: "/leemalaimare3.jpg",
     slug: "dakuu",
     shortDescription: "Daily tracker app.",
-    longDescription: "Dakuu helps you track your daily activities effortlessly. Free to use."
+    longDescription: "Dakuu helps you track your daily activities. Free to use."
   },
   {
-    name: "HaruDakoo",
-    availability: "Available on App Store",
+    name: "Coming Soon",
+    availability: "Coming Soon",
     image: "/leemalaimare2.jpg",
-    slug: "harudakoo",
-    shortDescription: "Spring-themed app.",
-    longDescription: "HaruDakoo brings the freshness of spring to your device. Completely free."
+    slug: "Coming Soon",
+    shortDescription: "Coming Soon.",
+    longDescription: "Coming Soon."
   }
 ];
 
