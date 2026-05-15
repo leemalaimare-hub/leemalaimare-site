@@ -12,25 +12,27 @@ const products = [
     longDescription: "PractiQuest is designed to help you build habits through interactive quests. It's free and available on all platforms."
   },
   {
-    name: "Cuteronome",
-    availability: "Available on App Store",
-    image: "/cuteronome.jpg",
-    slug: "cuteronome",
-    shortDescription: "Precision metronome app.",
-    longDescription: "Cuteronome offers unparalleled precision for musicians. With a one-time purchase, enjoy lifetime access."
-  },
+  name: "Cuteronome",
+  availability: "Available on App Store",
+  image:"/cuteronome.jpg",
+  slug: "cuteronome",
+  shortDescription:
+    "A playful character-based metronome inspired by our dog, Gooree.",
+  longDescription:
+    "Cuteronome is a playful metronome app built around original illustrations by Dr. YooBin Lee, with its main character inspired by our dog, Gooree. Designed to make practice feel warmer and more enjoyable, it brings a softer visual personality to one of the most essential tools for musicians. The app is free to use, with optional customization features available through Unlock the Cute.",
+},
   {
-    name: "StudioNote",
+    name: "Stappli",
     availability: "Coming Soon",
-    image: "/leemalaimare.jpg",
-    slug: "studionote",
-    shortDescription: "Note-taking for creatives.",
-    longDescription: "StudioNote is coming soon. Stay tuned for a revolutionary note-taking experience tailored for creatives."
+    image: "/leemalaimare1.jpg",
+    slug: "stappli",
+    shortDescription: "A thoughtful workflow comapanion.",
+    longDescription: "Stappli simplifies workflow through quiet, thoughtful automation designed to make coordination feel more natural and efficient."
   },
   {
     name: "Orchestra Platform",
     availability: "Coming Soon",
-    image: "/leemalaimare.jpg",
+    image: "/leemalaimare2.jpg",
     slug: "orchestra-platform",
     shortDescription: "Platform for orchestras.",
     longDescription: "Orchestra Platform will connect musicians worldwide. Launching soon."
@@ -38,7 +40,7 @@ const products = [
   {
     name: "Dakuu",
     availability: "Available on App Store",
-    image: "/leemalaimare.jpg",
+    image: "/leemalaimare3.jpg",
     slug: "dakuu",
     shortDescription: "Daily tracker app.",
     longDescription: "Dakuu helps you track your daily activities effortlessly. Free to use."
@@ -46,7 +48,7 @@ const products = [
   {
     name: "HaruDakoo",
     availability: "Available on App Store",
-    image: "/leemalaimare.jpg",
+    image: "/leemalaimare2.jpg",
     slug: "harudakoo",
     shortDescription: "Spring-themed app.",
     longDescription: "HaruDakoo brings the freshness of spring to your device. Completely free."
@@ -62,14 +64,14 @@ export default function WhatWeBuilt() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {products.map((product) => (
-            <Link key={product.slug} href={`/what-we-built/${product.slug}`} className="group cursor-pointer">
+            <Link key={product.slug} href={`/work/${product.slug}`} className="group cursor-pointer">
               <div className="overflow-hidden relative">
                 <Image
                   src={product.image}
                   alt={product.name}
                   width={400}
-                  height={600}
-                  className="w-full h-[640px] object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  height={400}
+                  className="w-full h-[400px] object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <h2 className="text-white text-2xl font-medium">{product.name}</h2>

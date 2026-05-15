@@ -1,86 +1,127 @@
-import Image from "next/image";
+import ProductImageSlider from "./ProductImageSlider";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const products = [
   {
     name: "PractiQuest",
     price: "Free",
-    image: "https://via.placeholder.com/600x800?text=PractiQuest",
+    images: ["/practiquest.jpg"],
     slug: "practiquest",
-    shortDescription: "A practice quest app.",
-    longDescription: "PractiQuest is designed to help you build habits through interactive quests. It's free and available on all platforms. Experience the joy of consistent practice with our gamified approach."
+    appStore: "https://apps.apple.com/",
+    shortDescription:
+      "A quest-based practice companion designed to build consistency and motivation.",
+    longDescription:
+      "PractiQuest transforms daily practice into a more structured and rewarding experience through goals, streaks, and interactive progression designed for musicians and creatives.",
   },
   {
-    name: "Cutronome",
-    price: "$1.99",
-    image: "https://via.placeholder.com/600x800?text=Cutronome",
-    slug: "cutronome",
-    shortDescription: "Precision metronome app.",
-    longDescription: "Cutronome offers unparalleled precision for musicians. With a one-time purchase, enjoy lifetime access. Perfect for rehearsals and performances alike."
+    name: "Cuteronome",
+    price: "Free with In-app Purchases",
+    images: [
+      "/cuteronome.jpg",
+      "/cuteronome1.jpg",
+      "/cuteronome2.jpg",
+      "/cuteronome3.jpg",
+    ],
+    slug: "cuteronome",
+    appStore: "https://apps.apple.com/",
+    shortDescription:
+      "A playful character-based metronome inspired by our fur baby, Gooree.",
+    longDescription:
+      "Cuteronome is a playful metronome app built around original illustrations by YooBin, with its main character inspired by our fur baby, Gooree. Designed to make practice feel warmer and more enjoyable, it brings a softer visual personality to one of the most essential tools for musicians. The app is free to use, with optional customization features available through Unlock the Cute.",
   },
   {
     name: "StudioNote",
     price: "Coming Soon",
-    image: "https://via.placeholder.com/600x800?text=StudioNote",
+    images: ["/studionote.jpg"],
     slug: "studionote",
-    shortDescription: "Note-taking for creatives.",
-    longDescription: "StudioNote is coming soon. Stay tuned for a revolutionary note-taking experience tailored for creatives. It will redefine how you capture ideas."
+    appStore: "",
+    shortDescription:
+      "A calm note-taking space for lessons, studios, and creative work.",
+    longDescription:
+      "StudioNote is designed as a quiet digital notebook for creative professionals, teachers, and students.",
   },
   {
-    name: "Orchestra Platform",
+    name: "Stappli",
     price: "Coming Soon",
-    image: "https://via.placeholder.com/600x800?text=Orchestra+Platform",
-    slug: "orchestra-platform",
-    shortDescription: "Platform for orchestras.",
-    longDescription: "Orchestra Platform will connect musicians worldwide. Launching soon. Prepare for a new era of musical collaboration."
+    images: ["/leemalaimare1.jpg"],
+    slug: "stappli",
+    appStore: "",
+    shortDescription:
+      "A thoughtful workflow companion designed to reduce friction in everyday coordination.",
+    longDescription:
+      "Stappli simplifies outreach, communication, and workflow through quiet, thoughtful automation designed to make coordination feel more natural and efficient.",
   },
-  {
-    name: "Dakuu",
-    price: "Free",
-    image: "https://via.placeholder.com/600x800?text=Dakuu",
-    slug: "dakuu",
-    shortDescription: "Daily tracker app.",
-    longDescription: "Dakuu helps you track your daily activities effortlessly. Free to use. Stay organized and mindful with our intuitive interface."
-  },
-  {
-    name: "HaruDakoo",
-    price: "Free",
-    image: "https://via.placeholder.com/600x800?text=HaruDakoo",
-    slug: "harudakoo",
-    shortDescription: "Spring-themed app.",
-    longDescription: "HaruDakoo brings the freshness of spring to your device. Completely free. Embrace renewal with every interaction."
-  }
 ];
 
-export default function ProductDetail({ params }: { params: { slug: string } }) {
-  const product = products.find(p => p.slug === params.slug);
+export default async function ProductDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) {
     notFound();
   }
 
   return (
-    <main className="min-h-screen bg-[#F7F5F2] px-6 py-12 md:px-12 md:py-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-        <div className="overflow-hidden">
-          <Image
-            src={product.image}
-            alt={product.name}
-            width={600}
-            height={800}
-            className="w-full h-auto object-cover"
-          />
+    <main className="min-h-screen bg-[#F7F5F2] text-[#111111]">
+  <div className="mx-auto w-full max-w-[1400px]">
+      <section className="grid grid-cols-1 items-center gap-10 px-8 py-14 md:grid-cols-2 md:px-16 md:py-20">
+        <div className="mx-auto flex w-full max-w-[360px] justify-center">
+          <ProductImageSlider images={product.images} name={product.name} />
         </div>
-        <div className="flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-medium text-[#111111] mb-4">{product.name}</h1>
-          <p className="text-2xl text-[#111111] mb-8">{product.price}</p>
-          <p className="text-lg text-[#111111] mb-6">{product.shortDescription}</p>
-          <p className="text-base text-[#111111] leading-relaxed mb-12">{product.longDescription}</p>
-          <button className="bg-[#111111] text-[#F7F5F2] px-8 py-3 text-lg font-medium hover:bg-[#333333] transition-colors duration-300">
-            View on App Store
-          </button>
+
+        <div className="mx-auto flex w-full max-w-[440px] flex-col justify-center md:pl-6">
+          <p className="text-xs uppercase tracking-[0.3em] font-light">
+            Lee & Malaimare
+          </p>
+
+          <h1 className="mt-8 text-4xl md:text-6xl tracking-[-0.02em] font-light">
+            {product.name}
+          </h1>
+
+          <p className="mt-6 text-sm uppercase tracking-[0.18em] font-light">
+            {product.price}
+          </p>
+
+          <p className="mt-10 text-sm md:text-base leading-relaxed tracking-[0.04em] font-light">
+            {product.shortDescription}
+          </p>
+
+          {product.appStore ? (
+            <a
+              href={product.appStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-12 inline-block w-fit border border-[#111111] px-8 py-3 text-xs uppercase tracking-[0.2em] transition hover:bg-[#111111] hover:text-[#F7F5F2]"
+            >
+              View on App Store
+            </a>
+          ) : (
+            <p className="mt-12 text-xs uppercase tracking-[0.2em] font-light">
+              Coming Soon
+            </p>
+          )}
+
+  
         </div>
-      </div>
+      </section>
+
+      <section className="px-8 py-20 md:px-16">
+        <div className="max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.3em] font-light">
+            About the Product
+          </p>
+
+          <p className="mt-8 text-lg md:text-2xl leading-relaxed tracking-[-0.01em] font-light">
+            {product.longDescription}
+          </p>
+        </div>
+      </section>
+     </div>
     </main>
   );
 }

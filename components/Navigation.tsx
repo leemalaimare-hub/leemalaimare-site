@@ -31,6 +31,9 @@ export default function Navigation() {
           <Link href="/work" className="hover:opacity-70 transition-opacity duration-200">
             What We Built
           </Link>
+          <Link href="/privacy" className="hover:opacity-70 transition-opacity duration-200">
+            Privacy
+          </Link>
           <Link href="/contact" className="hover:opacity-70 transition-opacity duration-200">
             Contact
           </Link>
