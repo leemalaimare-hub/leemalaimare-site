@@ -2,6 +2,8 @@ import ProductImageSlider from "./ProductImageSlider";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export const runtime = "edge";
+
 const products = [
   {
     name: "PractiQuest",
