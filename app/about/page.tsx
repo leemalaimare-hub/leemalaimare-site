@@ -28,6 +28,7 @@ export default function AboutPage() {
               src="/alex.jpg"
               alt="Alex Malaimare"
               fill
+              priority
               className="object-cover"
             />
           </div>
@@ -50,9 +51,10 @@ export default function AboutPage() {
 
           <div className="relative h-[70vh] w-full">
             <Image
-              src="/yoobin.jpg"
+              src="/yoobin1.jpg"
               alt="YooBin Lee"
               fill
+              priority
               className="object-cover"
             />
           </div>
